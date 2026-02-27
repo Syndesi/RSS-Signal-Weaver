@@ -1,0 +1,30 @@
+[project]
+name = "signalweaver"
+version = "0.1.0"
+requires-python = ">=3.13"
+
+dependencies = [
+    "prefect>=2.16",
+    "feedparser",
+    "langdetect",
+    "structlog",
+    "marimo",
+    "numpy",
+    "pandas",
+    "duckdb",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest",
+    "ruff",
+    "mypy",
+]
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+warn_unused_configs = true
+disallow_any_generics = true
+disallow_untyped_defs = true
+no_implicit_optional = true
