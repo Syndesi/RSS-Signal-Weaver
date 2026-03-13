@@ -1,0 +1,16 @@
+name: rss-signal-weaver
+
+services:
+
+  app:
+    container_name: rss-signal-weaver
+    build:
+      dockerfile: tools/Dockerfile
+      context: ..
+      target: dev
+    tty: true
+    volumes:
+      - ..:/app
+    working_dir: /app
+    ports:
+      - 2718:2718
