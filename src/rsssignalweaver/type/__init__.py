@@ -1,4 +1,9 @@
-from .rss_feed import RssFeed
-from .demo import Demo
+from .collection import CollectionLinks, Collection
+from .element import Element
 
-__all__ = ["RssFeed", "Demo"]
+
+__all__ = [
+    "CollectionLinks",
+    "Collection",
+    "Element",
+]
