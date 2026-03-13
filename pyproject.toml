@@ -11,9 +11,12 @@ dependencies = [
     "marimo",
     "numpy",
     "pandas",
+    "pydantic>=2.12.5",
 ]
 
-dependency-groups.dev = [
+[dependency-groups]
+dev = [
+    "pip>=26.0.1",
     "pytest",
     "ruff",
     "ty"

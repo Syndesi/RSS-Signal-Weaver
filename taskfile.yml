@@ -25,3 +25,7 @@ tasks:
   dev:marimo:
     cmds:
       - docker compose -f ./tools/docker-compose.yml exec app uv run -m marimo edit --host 0.0.0.0 notebooks
+
+  dev:test:
+    cmds:
+      - docker compose -f ./tools/docker-compose.yml exec app uv run -m pytest --no-header

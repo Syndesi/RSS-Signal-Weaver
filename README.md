@@ -11,4 +11,8 @@ task dev:cli
 ```bash
 # in container
 uv sync
+
+# for pycharm integration
+source /app/.venv/bin/activate
+python -m ensurepip
 ```
