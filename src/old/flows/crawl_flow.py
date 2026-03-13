@@ -3,7 +3,7 @@ import structlog
 from prefect import flow, task
 
 from rrsignalweaver.core.logging_config import configure_logging
-from rrsignalweaver.core.models import Article, LanguageBatch
+from rrsignalweaver.core.models import LanguageBatch
 from rrsignalweaver.tasks.load_config import load_config
 from rrsignalweaver.tasks.select_feed import select_feed
 from rrsignalweaver.tasks.fetch_feed import fetch_feed

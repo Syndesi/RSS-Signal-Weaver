@@ -2,7 +2,7 @@ from pydantic import BaseModel, field_validator
 
 from .node import RssFeed
 from .relation import Owns
-from . import Element
+from .element import Element
 from .node import Node
 from .relation import Relation
 

@@ -2,7 +2,7 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict
 
-from . import Node
+from .node import Node
 
 class RssFeedData(BaseModel):
     name: str

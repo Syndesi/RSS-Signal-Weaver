@@ -29,3 +29,7 @@ tasks:
   dev:test:
     cmds:
       - docker compose -f ./tools/docker-compose.yml exec app uv run -m pytest --no-header
+
+  dev:cs:
+    cmds:
+      - docker compose -f ./tools/docker-compose.yml exec app uv run -m ruff check --fix
