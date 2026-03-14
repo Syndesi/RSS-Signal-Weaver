@@ -8,12 +8,12 @@ from .node import Node
 
 
 class RssFeedData(BaseModel):
-	name: str
-	url: str
+    name: str
+    url: str
 
-	model_config = ConfigDict(extra='allow')
+    model_config = ConfigDict(extra='allow')
 
 
 class RssFeed(Node):
-	type: Literal['RssFeed']
-	data: RssFeedData
+    type: Literal['RssFeed']
+    data: RssFeedData

@@ -6,12 +6,12 @@ from pydantic import BaseModel, ConfigDict
 
 
 class RelationData(BaseModel):
-	model_config = ConfigDict(extra='allow')
+    model_config = ConfigDict(extra='allow')
 
 
 class Relation(BaseModel):
-	id: UUID
-	type: str
-	start: UUID
-	end: UUID
-	data: RelationData
+    id: UUID
+    type: str
+    start: UUID
+    end: UUID
+    data: RelationData

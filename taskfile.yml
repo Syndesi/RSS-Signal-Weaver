@@ -8,11 +8,11 @@ tasks:
 
   dev:up:
     cmds:
-      - docker compose -f ./tools/docker-compose.yml up -d
+      - docker compose -f ./tools/docker-compose.yml up -d  --remove-orphans
 
   dev:down:
     cmds:
-      - docker compose -f ./tools/docker-compose.yml down --remove-orphans
+      - docker compose -f ./tools/docker-compose.yml down
 
   dev:cli:
     cmds:
@@ -28,7 +28,8 @@ tasks:
 
   dev:test:
     cmds:
-      - docker compose -f ./tools/docker-compose.yml exec app uv run -m pytest --no-header
+      - docker compose -f ./tools/docker-compose.yml exec app uv run -m coverage run -m pytest --no-header
+      - docker compose -f ./tools/docker-compose.yml exec app uv run -m coverage html
 
   dev:cs:
     cmds:

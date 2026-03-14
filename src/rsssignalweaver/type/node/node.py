@@ -6,10 +6,10 @@ from pydantic import BaseModel, ConfigDict
 
 
 class NodeData(BaseModel):
-	model_config = ConfigDict(extra='allow')
+    model_config = ConfigDict(extra='allow')
 
 
 class Node(BaseModel):
-	id: UUID
-	type: str
-	data: NodeData
+    id: UUID
+    type: str
+    data: NodeData

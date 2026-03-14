@@ -15,7 +15,14 @@ WORKDIR /app
 
 FROM base AS dev
 
-RUN apk add bash
+ENV SHELL=/bin/bash
+ENV PNPM_HOME=/root/.local/share/pnpm
+ENV PATH=$PNPM_HOME:$PATH
+
+RUN apk add bash nodejs npm pnpm && \
+    npm install -g pnpm && \
+    pnpm setup && \
+    pnpm add -g allure
 
 FROM base AS prod
 
