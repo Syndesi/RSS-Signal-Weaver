@@ -4,7 +4,7 @@ from .collection import Collection, CollectionLinks
 from .element import Element
 
 __all__ = [
-    "Collection",
-    "CollectionLinks",
-    "Element",
+	'Collection',
+	'CollectionLinks',
+	'Element',
 ]

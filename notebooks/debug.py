@@ -16,27 +16,27 @@ app = mo.App()
 
 @app.cell
 def _():
-    config = load_config()
-    return config
+	config = load_config()
+	return config
 
 
 @app.cell
 def _(config):
-    feed_url = select_feed(config)
-    return feed_url
+	feed_url = select_feed(config)
+	return feed_url
 
 
 @app.cell
 def _(feed_url):
-    feed = fetch_feed(feed_url)
-    return extract_articles(feed)
+	feed = fetch_feed(feed_url)
+	return extract_articles(feed)
 
 
 @app.cell
 def _(extract_articles):
-    detected = [detect_language(a) for a in extract_articles]
-    return group_by_language(detected)
+	detected = [detect_language(a) for a in extract_articles]
+	return group_by_language(detected)
 
 
-if __name__ == "__main__":
-    app.run()
+if __name__ == '__main__':
+	app.run()

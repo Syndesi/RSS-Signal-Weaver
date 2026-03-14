@@ -32,4 +32,5 @@ tasks:
 
   dev:cs:
     cmds:
-      - docker compose -f ./tools/docker-compose.yml exec app uv run -m ruff check --fix && uv run -m ruff format
+      #- docker compose -f ./tools/docker-compose.yml exec app uv run -m ruff check --fix
+      - docker compose -f ./tools/docker-compose.yml exec app uv run -m ruff format
