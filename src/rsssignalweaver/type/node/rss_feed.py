@@ -1,8 +1,11 @@
+from __future__ import annotations
+
 from typing import Literal
 
 from pydantic import BaseModel, ConfigDict
 
 from .node import Node
+
 
 class RssFeedData(BaseModel):
     name: str

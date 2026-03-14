@@ -1,13 +1,13 @@
-import marimo as mo
+from __future__ import annotations
 
+import marimo as mo
 from signalweaver.core.logging_config import configure_logging
+from signalweaver.tasks.detect_language import detect_language
+from signalweaver.tasks.extract_articles import extract_articles
+from signalweaver.tasks.fetch_feed import fetch_feed
+from signalweaver.tasks.group_by_language import group_by_language
 from signalweaver.tasks.load_config import load_config
 from signalweaver.tasks.select_feed import select_feed
-from signalweaver.tasks.fetch_feed import fetch_feed
-from signalweaver.tasks.extract_articles import extract_articles
-from signalweaver.tasks.detect_language import detect_language
-from signalweaver.tasks.group_by_language import group_by_language
-
 
 configure_logging()
 

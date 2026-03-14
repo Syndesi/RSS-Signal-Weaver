@@ -1,10 +1,10 @@
+from __future__ import annotations
+
 from pydantic import BaseModel, field_validator
 
-from .node import RssFeed
-from .relation import Owns
 from .element import Element
-from .node import Node
-from .relation import Relation
+from .node import Node, RssFeed
+from .relation import Owns, Relation
 
 NODE_TYPES = {
     "RssFeed": RssFeed

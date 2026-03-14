@@ -1,9 +1,11 @@
-from .rss_feed import RssFeed, RssFeedData
-from .node import Node
+from __future__ import annotations
 
+from .node import Node, NodeData
+from .rss_feed import RssFeed, RssFeedData
 
 __all__ = [
+    "Node",
+    "NodeData",
     "RssFeed",
-    "RssFeedData",
-    "Node"
+    "RssFeedData"
 ]

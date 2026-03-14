@@ -1,9 +1,10 @@
-from .collection import CollectionLinks, Collection
+from __future__ import annotations
+
+from .collection import Collection, CollectionLinks
 from .element import Element
 
-
 __all__ = [
-    "CollectionLinks",
     "Collection",
+    "CollectionLinks",
     "Element",
 ]
