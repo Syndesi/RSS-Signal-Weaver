@@ -32,7 +32,6 @@ def test_node_parsing_full_data():
 
 def test_node_parsing_minimal_data():
     payload = {
-        'id': 'debb2a23-2d92-490c-b169-62f80bc63af1',
         'type': 'Node',
         'data': {},
     }
@@ -40,7 +39,7 @@ def test_node_parsing_minimal_data():
     node = Node.model_validate(payload)
 
     assert node.type == 'Node'
-    assert str(node.id) == 'debb2a23-2d92-490c-b169-62f80bc63af1'
+    assert node.id is None
     # Minimal data should still allow access, just no attributes
     assert node.data.model_dump() == {}
 
@@ -56,16 +55,3 @@ def test_node_parsing_invalid_uuid():
         Node.model_validate(payload)
 
     assert 'Input should be a valid UUID' in str(exc_info.value)
-
-
-def test_node_parsing_missing_id():
-    payload = {
-        'type': 'Node',
-        'data': {'name': 'some name'},
-    }
-
-    with pytest.raises(ValidationError) as exc_info:
-        Node.model_validate(payload)
-
-    assert 'Field required' in str(exc_info.value)
-    assert 'id' in str(exc_info.value)

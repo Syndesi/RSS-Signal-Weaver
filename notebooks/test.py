@@ -77,5 +77,51 @@ def _(feed, mo):
     return
 
 
+@app.cell
+def _():
+    import feedparser
+
+    rss_feed = feedparser.parse('https://www.optimistdaily.com/feed/')
+    return (rss_feed,)
+
+
+@app.cell
+def _(rss_feed):
+    rss_feed
+    return
+
+
+@app.cell
+def _(rss_feed):
+    from rsssignalweaver.type.dto import RssFeedItem
+
+    parsed_items = []
+    for entry in rss_feed['entries']:
+        title = entry['title']
+        url = entry['link']
+        authors = []
+        for entry_author in entry['authors']:
+            authors.append(entry_author['name'])
+        tags = []
+        for entry_tag in entry['tags']:
+            tags.append(entry_tag['term'])
+        description = entry['summary']
+        published = entry['published_parsed']
+        source_item = entry
+        rss_feed_item = RssFeedItem(title, url, authors, tags, description, published, source_item)
+        parsed_items.append(rss_feed_item)
+
+    parsed_items[0]
+    return (parsed_items,)
+
+
+@app.cell
+def _(mo, parsed_items):
+    from dataclasses import asdict
+
+    mo.json(asdict(parsed_items[5]))
+    return
+
+
 if __name__ == '__main__':
     app.run()
