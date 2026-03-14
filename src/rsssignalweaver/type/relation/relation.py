@@ -10,7 +10,7 @@ class RelationData(BaseModel):
 
 
 class Relation(BaseModel):
-    id: UUID
+    id: UUID | None = None
     type: str
     start: UUID
     end: UUID

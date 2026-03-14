@@ -10,6 +10,6 @@ class NodeData(BaseModel):
 
 
 class Node(BaseModel):
-    id: UUID
+    id: UUID | None = None
     type: str
     data: NodeData

@@ -8,9 +8,11 @@ app = marimo.App(width='medium')
 
 @app.cell
 def _():
+    import uuid
+
     import marimo as mo
 
-    return (mo,)
+    return mo, uuid
 
 
 @app.cell
@@ -30,10 +32,48 @@ def _():
 
 @app.cell
 def _():
-    from rsssignalweaver.type import RssFeed
+    from rsssignalweaver.type.node import RssFeed
 
-    feed = RssFeed('test', 'url2')
+    data = {
+        'name': 'name',
+        'url': 'https://www.optimistdaily.com/feed/',
+        'created': '2020-01-01T00:00:00+00:00',
+        'updated': '2020-01-01T00:00:00+00:00',
+    }
+
+    feed = RssFeed(data=data)
+
     feed
+    return (feed,)
+
+
+@app.cell(hide_code=True)
+def _(feed, mo):
+    mo.md(f"""
+    ### RssFeed as JSON
+
+    ```json
+    {feed.model_dump_json(indent=2)}
+    ```
+    """)
+    return
+
+
+@app.cell
+def _(feed, uuid):
+    feed.id = uuid.UUID('c18449c2-532d-47d6-91e9-463d3edd3e01')
+    return
+
+
+@app.cell(hide_code=True)
+def _(feed, mo):
+    mo.md(f"""
+    ### RssFeed as JSON
+
+    ```json
+    {feed.model_dump_json(indent=2)}
+    ```
+    """)
     return
 
 
